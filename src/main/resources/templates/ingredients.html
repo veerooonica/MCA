@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/style.css">
+    <script type="text/javascript" th:src="@{/js/template/jquery.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/template/popper.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/template/bootstrap.min.js}"></script>
+    <script th:src="@{/js/querties.js}"></script>
+    <script th:src="@{/js/main.js}"></script>
+    <script th:src="@{/js/ingredients.js}"></script>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            table-layout: auto;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+            word-wrap: break-word;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        td {
+            max-width: 200px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    </style>
+</head>
+<body>
+
+<section>
+    <div>
+        <h3>Ингредиенты</h3>
+        <div>
+            <table id="ingredientsTable">
+                <tr>
+                    <th>Название</th>
+                    <th>Объем</th>
+                    <th>Единица измерения</th>
+                    <th>Калории</th>
+                    <th><button id="createIngredientBtn">Добавить</button></th>
+                    <th></th>
+                </tr>
+            </table>
+        </div>
+        <div>
+            <a href="/">Управление рецептами</a>
+        </div>
+    </div>
+</section>
+
+<div class="modal fade" id="ingredientModal" tabindex="-1" role="dialog" aria-labelledby="ingredientModal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="ingredientModalLabel">Добавить ингредиент</h5>
+            </div>
+            <form id="ingredientForm">
+                <div class="modal-body">
+                    <label for="ingredientName">Название ингредиента</label>
+                    <input id="ingredientName" type="text" placeholder="Название ингредиента" required value=""/><br>
+
+                    <label for="ingredientVolume">Объем</label>
+                    <input id="ingredientVolume" type="number" placeholder="Объем" required value=""/><br>
+
+                    <label for="ingredientUnit">Единица измерения</label>
+                    <input id="ingredientUnit" type="text" placeholder="Единица измерения" required value=""/><br>
+
+                    <label for="ingredientCalories">Калории</label>
+                    <input id="ingredientCalories" type="number" placeholder="Калории" required value=""/><br>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" data-dismiss="modal">Закрыть</button>
+                    <button id="ingredientSubmit" type="submit">Сохранить</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

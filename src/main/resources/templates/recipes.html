@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="css/style.css">
+    <script type="text/javascript" th:src="@{/js/template/jquery.min.js}"></script>
+    <script  type="text/javascript" th:src="@{/js/template/popper.min.js}"></script>
+    <script  type="text/javascript" th:src="@{/js/template/bootstrap.min.js}"></script>
+    <script th:src="@{/js/recipes.js}"></script>
+    <script th:src="@{/js/querties.js}"></script>
+    <script th:src="@{/js/main.js}"></script>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            table-layout: auto;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+            word-wrap: break-word;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+        td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        img{
+            display: block;
+            height: auto;
+            border: 1px solid #ddd;
+            width: 100px;
+            margin-right: auto;
+            margin-left: 40px;
+        }
+    </style>
+</head>
+<body>
+
+<section>
+    <div>
+        <div>
+            <div id="recipesBlock"></div>
+            <div>
+                <h3>Рецепты</h3>
+                <div>
+                    <table id="recipesTable">
+                        <tr>
+                            <th>Изображение</th>
+                            <th>Название</th>
+                            <th>Описание</th>
+                            <th>Инструкция</th>
+                            <th>Ингредиенты</th>
+                            <th>Сложность</th>
+                            <th>Время приготовления (мин)</th>
+                            <th>
+                                <button id="createRecipeBtn">Добавить</button>
+                            </th>
+                            <th></th>
+                        </tr>
+                    </table>
+                </div>
+                <div>
+                    <a href="/additional">Управление ингредиентами</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="modal fade" id="recipeModal" tabindex="-1" role="dialog" aria-labelledby="recipeModal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="recipeModalLabel"></h5>
+            </div>
+            <form id="recipeForm">
+                <div class="modal-body">
+                    <div>
+                        <label for="recipeModalImage">Загрузить картинку</label>
+                        <input accept="image/*" id="recipeModalImage" name="image" type="file" value=""
+                               onchange="(readImage($('#bookModalBookImage')).done(base64Data => $('#imagePreview').attr('src', base64Data)))"/>
+                    </div>
+
+                    <label for="recipeName">Название рецепта</label>
+                    <input id="recipeName" type="text" placeholder="Название рецепта" required value=""/><br>
+
+                    <label for="recipeDecryption">Описание</label>
+                    <input id="recipeDecryption" type="text" placeholder="Описание" required value=""/><br>
+
+                    <label for="recipeInstruction">Инструкция</label>
+                    <input id="recipeInstruction" type="text" placeholder="Инструкция" required value=""/><br>
+
+
+                    <label for="recipeIngredients">Категории</label>
+                    <select id="recipeIngredients" title="Выберите ингредиенты" data-style="btn-default"
+                            class="selectpicker form-control" multiple>
+                    </select><br><br>
+
+                    <label for="recipeDifficulty">Сложность</label>
+                    <select id="recipeDifficulty" required>
+                        <option value="" disabled selected>Выберите сложность</option>
+                        <option value="EASY">Легко</option>
+                        <option value="MEDIUM">Средне</option>
+                        <option value="HARD">Сложно</option>
+                    </select><br>
+
+                    <label for="recipeTime">Время приготовления (мин)</label>
+                    <input id="recipeTime" type="text" placeholder="Время приготовления" required value=""/><br>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" data-dismiss="modal">Закрыть</button>
+                    <button id="recipeSubmit" type="submit">Сохранить</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

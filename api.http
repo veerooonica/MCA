@@ -1,0 +1,96 @@
+##Requests for recipes
+GET http://localhost:8088/recipes
+Accept: application/json
+
+###
+GET http://localhost:8088/recipes/2
+Accept: application/json
+
+###
+POST http://localhost:8088/recipes
+Content-Type: application/json
+
+{
+  "title": "Рецепт",
+  "description": "Вкусный борщ с мясом и свеклой.",
+  "instruction": "bhbjdfjkjkdfmncxjk",
+  "ingredients": [
+    {
+      "name": "Мясо говядины",
+      "unit": "кг",
+      "calories": 250,
+      "volume": 2
+    }
+  ],
+  "difficulty": "MEDIUM",
+  "image": "image",
+  "cookTime": 60
+}
+
+###
+PUT http://localhost:8088/recipes/2
+Content-Type: application/json
+
+{
+  "title": "Рецепт борща0000",
+  "description": "Вкусный борщ с мясом и свеклой.",
+  "instruction": "bhbjdfjkjkdfmncxjk",
+  "ingredients": [
+    {
+      "name": "Свекла",
+      "unit": "шт.",
+      "calories": 43,
+      "volume": 2
+    },
+    {
+      "name": "Мясо говядины",
+      "unit": "кг",
+      "calories": 250,
+      "volume": 2
+    }
+  ],
+  "difficulty": "MEDIUM",
+  "image": "image",
+  "cookTime": 60
+}
+
+###
+DELETE http://localhost:8088/recipes/2
+Accept: application/json
+
+
+##Requests for recipes
+###
+GET http://localhost:8088/ingredients
+Accept: application/json
+
+###
+GET http://localhost:8088/ingredients/4
+Accept: application/json
+
+###
+POST http://localhost:8088/ingredients
+Content-Type: application/json
+
+{
+  "name": "мед",
+  "unit": "л.",
+  "calories": 43,
+  "allergens": ""
+}
+
+###
+PUT http://localhost:8088/ingredients/5
+Content-Type: application/json
+
+
+{
+  "name": "Молоко",
+  "unit": "л.",
+  "calories": 43,
+  "allergens": "молокоо"
+}
+
+###
+DELETE http://localhost:8088/ingredients/5
+Accept: application/json
