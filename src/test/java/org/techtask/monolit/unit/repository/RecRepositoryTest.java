@@ -21,7 +21,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 @DataJpaTest
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
 @ActiveProfiles("test")
-public class RecipeRepositoryTest {
+public class RecRepositoryTest {
     @Autowired
     private final RecipeRepository recipeRepository;
 
